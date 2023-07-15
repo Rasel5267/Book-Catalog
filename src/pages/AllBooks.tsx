@@ -1,15 +1,12 @@
 import BookCard from '@/components/BookCard';
 import Books from '@/data/BooksData';
-import '../styles/Home.css';
 
 const AllBooks = () => {
   return (
-    <div className="book-page">
-      <div className="books">
-        {Books.map((book) => (
-          <BookCard key={book._id} {...book} />
-        ))}
-      </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-5 py-8">
+      {Books.map((book) => (
+        <BookCard key={book._id} {...book} />
+      ))}
     </div>
   );
 };

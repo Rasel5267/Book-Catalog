@@ -1,20 +1,24 @@
 import { IBook } from '@/types/globalTypes';
-import '../styles/Book.css';
 import { Link } from 'react-router-dom';
 
 const BookCard = (book: IBook) => {
   return (
-    <Link to={`/book-details/${book._id}`} className="book">
-      <div className="image">
-        <img src={book.image} alt={book.title} />
+    <Link
+      to={`/book-details/${book._id}`}
+      className="card bg-base-100 shadow-xl"
+    >
+      <figure>
+        <img src={book.image} alt={book.title} className="w-[300px] h-64" />
+      </figure>
+      <div className="card-body">
+        <div className="card-actions">
+          <div className="badge badge-outline">{book.genre}</div>
+        </div>
+        <h2 className="card-title text-2xl">{book.title}</h2>
+        <p>
+          <b>By:</b> {book.author}
+        </p>
       </div>
-      <h3>{book.title}</h3>
-      <p>
-        <b>By:</b> {book.author}
-      </p>
-      <p>
-        <b>Genre:</b> {book.genre}
-      </p>
     </Link>
   );
 };

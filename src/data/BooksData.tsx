@@ -12,7 +12,14 @@ const Books: IBook[] = [
     genre: 'Sci-Fi',
     publicationDate: '2001',
     publisher: '64b06bbc0bb4a2b0d73a8483',
-    review: ['Very Good Book', 'Nice Book'],
+    reviews: [
+		{
+			review: "Very Good Book",
+			reviewer: {
+				name: "M Hasan"
+			}
+		}
+	],
   },
   {
     _id: '2',
