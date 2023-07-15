@@ -1,0 +1,44 @@
+.book {
+  width: calc(33.33% - 1rem);
+  padding: 0.8rem;
+  border: 1px solid var(--gray-color);
+}
+
+.book .image {
+  width: 300px;
+  height: 300px;
+}
+
+.book h3 {
+  color: var(--text-color);
+  transition: color 0.3s ease;
+  margin-bottom: 0.8rem;
+}
+
+.book {
+  color: var(--text-color);
+}
+
+.book h3 a:hover {
+  color: var(--secondary-color);
+}
+
+.book .add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* For medium devices (e.g., tablets) */
+@media screen and (max-width: 768px) {
+  .book {
+    width: calc(50% - 1rem); /* Show 2 cards in a row */
+  }
+}
+
+/* For small devices (e.g., mobile phones) */
+@media screen and (max-width: 580px) {
+  .book {
+    width: 100%; /* Show 1 card per row */
+  }
+}

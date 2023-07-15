@@ -15,12 +15,15 @@
   --gray-color: #ddd;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-}
-
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh !important;
 }
 
 li {
@@ -39,6 +42,31 @@ svg {
   display: flex;
 }
 
-.main {
-  height: 200vh;
+.submit-btn,
+.addButton {
+  background-color: var(--secondary-color);
+  outline: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 0.5rem 2rem;
+  background-color: var(--gray-color);
+}
+
+.footer p {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@media (max-width: 335px) {
+  .footer {
+    padding: 0 1rem;
+  }
 }

@@ -13,7 +13,7 @@ import { Link, NavLink } from 'react-router-dom';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
-  const [isLoggedIn] = useState(true);
+  const [isLoggedIn] = useState(false);
   const [isProfileOpen, setProfileOpen] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);

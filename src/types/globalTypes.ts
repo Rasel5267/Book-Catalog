@@ -1,11 +1,12 @@
 export interface IBook {
-  _id: number;
+  _id: string;
   title: string;
+  image: string;
   author: string;
   description: string;
   genre: string;
   publicationDate: string | Date;
-  publisher?: object;
-  review: string[];
+  publisher: string;
+  review?: string[];
   reviewer?: object;
 }

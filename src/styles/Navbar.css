@@ -189,4 +189,8 @@ nav .search-icon {
   nav .logo {
     font-size: 1.2rem;
   }
+
+  nav {
+    padding: 0 1rem;
+  }
 }

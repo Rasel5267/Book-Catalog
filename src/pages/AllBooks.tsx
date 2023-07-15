@@ -1,11 +1,10 @@
 import BookCard from '@/components/BookCard';
-import '../styles/Home.css';
 import Books from '@/data/BooksData';
+import '../styles/Home.css';
 
-const Home = () => {
+const AllBooks = () => {
   return (
-    <div className="home">
-      <h2>Our Latest Books</h2>
+    <div className="book-page">
       <div className="books">
         {Books.map((book) => (
           <BookCard key={book._id} {...book} />
@@ -15,4 +14,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default AllBooks;
