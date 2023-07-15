@@ -8,7 +8,7 @@ const BookCard = (book: IBook) => {
       className="card bg-base-100 shadow-xl"
     >
       <figure>
-        <img src={book.image} alt={book.title} className="w-[300px] h-64" />
+        <img src={book.image} alt={book.title} className="w-[300px] h-96" />
       </figure>
       <div className="card-body">
         <div className="card-actions">
