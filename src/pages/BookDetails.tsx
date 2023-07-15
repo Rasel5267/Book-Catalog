@@ -1,16 +1,16 @@
-// import { useSingleBookQuery } from '@/redux/api/apiSlice';
-// import { useParams } from 'react-router-dom';
+import { useSingleBookQuery } from '@/redux/api/apiSlice';
+import { useParams } from 'react-router-dom';
 
 const BookDetails = () => {
-  //   const { id } = useParams();
+  const { id } = useParams();
 
-  //   const { data, isLoading } = useSingleBookQuery(id);
+  const { data, isLoading } = useSingleBookQuery(id);
 
-  //   const book = data?.data;
+  const book = data?.data;
 
   return (
     <>
-      {/* {isLoading ? (
+      {isLoading ? (
         <div className="flex justify-center w-[100vw]">
           <span className="loading loading-dots loading-lg"></span>
         </div>
@@ -35,7 +35,7 @@ const BookDetails = () => {
             </div>
           </div>
         </div>
-      )} */}
+      )}
     </>
   );
 };
