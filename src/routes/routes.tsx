@@ -10,6 +10,8 @@ import Wishlist from '@/pages/Wishlist';
 import ReadingList from '@/pages/ReadingList';
 import FinishedBooks from '@/pages/FinishedBooks';
 import AllBooks from '@/pages/AllBooks';
+import { PrivateRoute, PublicRoute } from './PrivateRoute';
+import EditBook from '@/pages/EditBook';
 
 const routes = createBrowserRouter([
   {
@@ -29,30 +31,62 @@ const routes = createBrowserRouter([
         element: <BookDetails />,
       },
       {
-        path: '/add-book',
-        element: <AddNewBook />,
+        path: 'books/add-book',
+        element: (
+          <PrivateRoute>
+            <AddNewBook />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'books/edit/:id',
+        element: (
+          <PrivateRoute>
+            <EditBook />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/wish-list',
-        element: <Wishlist />,
+        element: (
+          <PrivateRoute>
+            <Wishlist />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/reading-list',
-        element: <ReadingList />,
+        element: (
+          <PrivateRoute>
+            <ReadingList />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/finished-books',
-        element: <FinishedBooks />,
+        element: (
+          <PrivateRoute>
+            <FinishedBooks />
+          </PrivateRoute>
+        ),
       },
     ],
   },
   {
     path: '/login',
-    element: <Login />,
+    element: (
+      <PublicRoute>
+        <Login />
+      </PublicRoute>
+    ),
   },
   {
     path: '/signup',
-    element: <SignUp />,
+    element: (
+      <PublicRoute>
+        <SignUp />
+      </PublicRoute>
+    ),
   },
   {
     path: '*',

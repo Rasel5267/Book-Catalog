@@ -1,3 +1,5 @@
+import { logout } from '@/redux/features/auth/authSlice';
+import { useAppDispatch } from '@/redux/hook';
 import { useState } from 'react';
 import {
   AiOutlineCheckCircle,
@@ -11,9 +13,12 @@ import { BiLogIn, BiLogOut } from 'react-icons/bi';
 import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-  const [isLoggedIn] = useState(true);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
+
+  const dispatch = useAppDispatch();
+  const storedAuthData = localStorage.getItem('auth');
+  const token = storedAuthData ? JSON.parse(storedAuthData).token : null;
 
   const handleSearch = () => {
     setSearchOpen(!isSearchOpen);
@@ -23,6 +28,12 @@ const Navbar = () => {
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
     setSearchOpen(false);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('auth');
+    dispatch(logout());
+    window.location.reload();
   };
 
   return (
@@ -38,7 +49,7 @@ const Navbar = () => {
             isMenuOpen ? 'top-[10%]' : 'top-[-100%]'
           }`}
         >
-          <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+          <ul className="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-8">
             <li onClick={() => setMenuOpen(false)}>
               <NavLink to="/" className="hover:text-gray-500">
                 Home
@@ -49,12 +60,12 @@ const Navbar = () => {
                 All Books
               </NavLink>
             </li>
-            {isLoggedIn && (
+            {token && (
               <li
                 className="bg-[#a6c1ee] text-white px-5 py-2 rounded-sm hover:bg-[#87acec]"
                 onClick={() => setMenuOpen(false)}
               >
-                <NavLink to="/add-book">Add Books</NavLink>
+                <NavLink to="books/add-book">Add Books</NavLink>
               </li>
             )}
           </ul>
@@ -87,7 +98,7 @@ const Navbar = () => {
               tabIndex={0}
               className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
-              {isLoggedIn ? (
+              {token ? (
                 <>
                   <NavLink
                     to="/wish-list"
@@ -110,7 +121,10 @@ const Navbar = () => {
                     <AiOutlineCheckCircle />
                     <span>Finished Books</span>
                   </NavLink>
-                  <div className="flex items-center gap-3 text-xl cursor-pointer">
+                  <div
+                    className="flex items-center gap-3 text-xl cursor-pointer"
+                    onClick={handleLogout}
+                  >
                     <BiLogOut />
                     <span>Logout</span>
                   </div>

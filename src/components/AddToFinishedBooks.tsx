@@ -1,13 +1,13 @@
-import { useAddToReadingListMutation } from '@/redux/features/user/userApi';
+import { useAddToFinishedBooksMutation } from '@/redux/features/user/userApi';
 import { message } from 'antd';
-import { AiOutlineRead } from 'react-icons/ai';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
 
-const AddToReadingList = (id) => {
-  const [addToReadingList, { isLoading }] = useAddToReadingListMutation();
+const AddToFinishedBooks = (id) => {
+  const [addToFinishedBooks, { isLoading }] = useAddToFinishedBooksMutation();
 
-  const handleAddToReadingList = async () => {
+  const handleAddToFinishedBooks = async () => {
     try {
-      const response = await addToReadingList(id);
+      const response = await addToFinishedBooks(id);
       if (response.error) {
         message.error(response.error.data.errorMessages[0].message);
       } else {
@@ -26,12 +26,12 @@ const AddToReadingList = (id) => {
           <span className="loading loading-ring loading-lg"></span>
         </div>
       ) : (
-        <button onClick={handleAddToReadingList}>
-          <AiOutlineRead size={25} />
+        <button onClick={handleAddToFinishedBooks}>
+          <AiOutlineCheckCircle size={25} />
         </button>
       )}
     </>
   );
 };
 
-export default AddToReadingList;
+export default AddToFinishedBooks;

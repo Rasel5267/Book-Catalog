@@ -1,18 +1,33 @@
-import { useSingleBookQuery } from '@/redux/api/apiSlice';
-import { useParams } from 'react-router-dom';
+import AddToReadingList from '@/components/AddToReadingList';
+import AddToWishList from '@/components/AddToWishList';
+import { useSingleBookQuery } from '@/redux/features/books/bookApi';
+import { Link, useParams } from 'react-router-dom';
 
 const BookDetails = () => {
   const { id } = useParams();
+
+  const storedAuthData = localStorage.getItem('auth');
+  const authData = storedAuthData ? JSON.parse(storedAuthData) : null;
+
+  const user = authData ? authData.user : null;
 
   const { data, isLoading } = useSingleBookQuery(id);
 
   const book = data?.data;
 
+  let publisher = false;
+
+  if (user != null) {
+    if (user?.id === book?.publisher) {
+      publisher = true;
+    }
+  }
+
   return (
     <>
       {isLoading ? (
-        <div className="flex justify-center w-[100vw]">
-          <span className="loading loading-dots loading-lg"></span>
+        <div className="flex justify-center h-[100vh]">
+          <span className="loading loading-ring loading-lg"></span>
         </div>
       ) : (
         <div className="card lg:card-side bg-base-100 shadow-xl py-8 px-8">
@@ -29,9 +44,17 @@ const BookDetails = () => {
               </div>
             </div>
             <span>{book?.description}</span>
+            {publisher && (
+              <div className="card-actions flex justify-center mt-20 gap-8">
+                <button className="btn btn-primary">
+                  <Link to={`/books/edit/${book?._id}`}>Edit Book</Link>
+                </button>
+                <button className="btn btn-primary">Delete Book</button>
+              </div>
+            )}
             <div className="card-actions flex justify-center mt-20 gap-8">
-              <button className="btn btn-primary">Add To Wishlist</button>
-              <button className="btn btn-primary">Add To Reading List</button>
+              <AddToWishList id={book?._id} />
+              <AddToReadingList id={book?._id} />
             </div>
           </div>
         </div>
