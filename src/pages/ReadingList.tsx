@@ -2,8 +2,8 @@ import { useGetReadingListQuery } from '@/redux/features/user/userApi';
 import { message } from 'antd';
 import { IBook } from '../types/globalTypes';
 import { Link } from 'react-router-dom';
-import { AiOutlineDelete } from 'react-icons/ai';
 import AddToFinishedBooks from '@/components/AddToFinishedBooks';
+import RemoveFromReadingList from '@/components/RemoveFromReadingList';
 
 const ReadingList = () => {
   const { data, error, isLoading } = useGetReadingListQuery(undefined);
@@ -82,9 +82,7 @@ const ReadingList = () => {
                 <td className="whitespace-nowrap border">
                   <div className="flex items-center justify-center">
                     <AddToFinishedBooks id={book._id} />
-                    <button className="p-2">
-                      <AiOutlineDelete fill="red" size={25} />
-                    </button>
+                    <RemoveFromReadingList id={book._id} />
                   </div>
                 </td>
               </tr>
@@ -112,13 +110,9 @@ const ReadingList = () => {
                 {book.publicationDate.toString()}
               </div>
             </div>
-            <div className="">
-              <div className="flex items-center justify-end">
-                <AddToFinishedBooks id={book._id} />
-                <button className="p-2">
-                  <AiOutlineDelete fill="red" size={25} />
-                </button>
-              </div>
+            <div className="flex items-center justify-end space-x-2">
+              <AddToFinishedBooks id={book._id} />
+              <RemoveFromReadingList id={book._id} />
             </div>
           </div>
         ))}

@@ -1,8 +1,8 @@
 import { message } from 'antd';
 import { IBook } from '../types/globalTypes';
 import { Link } from 'react-router-dom';
-import { AiOutlineDelete } from 'react-icons/ai';
 import { useGetFinishedBooksQuery } from '@/redux/features/user/userApi';
+import RemoveFromFinishedBooks from '@/components/RemoveFromFinishedBooks';
 
 const FinishedBooks = () => {
   const { data, error, isLoading } = useGetFinishedBooksQuery(undefined);
@@ -79,9 +79,7 @@ const FinishedBooks = () => {
                   {book.genre}
                 </td>
                 <td className="whitespace-nowrap border">
-                  <button className="p-2">
-                    <AiOutlineDelete fill="red" size={25} />
-                  </button>
+                  <RemoveFromFinishedBooks id={book._id} />
                 </td>
               </tr>
             ))}
@@ -108,10 +106,8 @@ const FinishedBooks = () => {
                 {book.publicationDate.toString()}
               </div>
             </div>
-            <div>
-              <button className="p-2">
-                <AiOutlineDelete fill="red" size={25} />
-              </button>
+            <div className="mt-4 text-right">
+              <RemoveFromFinishedBooks id={book._id} />
             </div>
           </div>
         ))}

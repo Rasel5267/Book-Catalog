@@ -2,8 +2,8 @@ import { useGetWishlistQuery } from '@/redux/features/user/userApi';
 import { message } from 'antd';
 import { IBook } from '../types/globalTypes';
 import { Link } from 'react-router-dom';
-import { AiOutlineDelete } from 'react-icons/ai';
 import AddToReadingList from '@/components/AddToReadingList';
+import RemoveFromWishList from '@/components/RemoveFromWishList';
 
 const Wishlist = () => {
   const { data, error, isLoading } = useGetWishlistQuery(undefined);
@@ -83,9 +83,7 @@ const Wishlist = () => {
                 <td className="whitespace-nowrap border">
                   <div className="flex items-center justify-center">
                     <AddToReadingList id={book._id} />
-                    <button className="p-2">
-                      <AiOutlineDelete fill="red" size={25} />
-                    </button>
+                    <RemoveFromWishList id={book._id} />
                   </div>
                 </td>
               </tr>
@@ -113,13 +111,9 @@ const Wishlist = () => {
                 {book.publicationDate.toString()}
               </div>
             </div>
-            <div className="">
-              <div className="flex items-center justify-end">
-                <AddToReadingList id={book._id} />
-                <button className="p-2">
-                  <AiOutlineDelete fill="red" size={25} />
-                </button>
-              </div>
+            <div className="flex items-center justify-end space-x-2">
+              <AddToReadingList id={book._id} />
+              <RemoveFromWishList id={book._id} />
             </div>
           </div>
         ))}
