@@ -1,5 +1,6 @@
 import AddToReadingList from '@/components/AddToReadingList';
 import AddToWishList from '@/components/AddToWishList';
+import DeleteBook from '@/components/DeleteBook';
 import { useSingleBookQuery } from '@/redux/features/books/bookApi';
 import { Link, useParams } from 'react-router-dom';
 
@@ -49,7 +50,7 @@ const BookDetails = () => {
                 <button className="btn btn-primary">
                   <Link to={`/books/edit/${book?._id}`}>Edit Book</Link>
                 </button>
-                <button className="btn btn-primary">Delete Book</button>
+                <DeleteBook id={book?._id} />
               </div>
             )}
             <div className="card-actions flex justify-center mt-20 gap-8">
