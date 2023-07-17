@@ -8,7 +8,9 @@ const AddReview = ({ id }) => {
     try {
       const options = {
         id,
-        values,
+        values: {
+          review: values,
+        },
       };
       const response = await addReview(options);
       if (response.error) {

@@ -17,12 +17,8 @@ const EditBook = () => {
   const book = data?.data;
 
   const onFinishHandler = async (values: IBook) => {
-    const options = {
-      id: id,
-      values: values,
-    };
     try {
-      const response = await updateBook(options);
+      const response = await updateBook({ id, values });
       if (response.error) {
         message.error(response.error.data.errorMessages[0].message);
       } else {

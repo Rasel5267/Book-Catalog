@@ -30,10 +30,12 @@ const productApi = api.injectEndpoints({
       }),
     }),
     addReview: builder.mutation({
-      query: ({ id, ...values }) => ({
+      query: ({ id, values }) => ({
         url: `/books/review/${id}`,
         method: 'POST',
-        body: values,
+        body: {
+          review: values.review,
+        },
       }),
       invalidatesTags: ['review'],
     }),
