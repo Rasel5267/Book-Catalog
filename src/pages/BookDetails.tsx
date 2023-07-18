@@ -34,41 +34,61 @@ const BookDetails = () => {
           <span className="loading loading-ring loading-lg"></span>
         </div>
       ) : (
-        <>
-          <div className="card lg:card-side bg-base-100 shadow-xl py-8 px-8 rounded-none">
-            <figure>
-              <img src={book?.image} alt={book?.title} />
-            </figure>
-            <div className="card-body">
-              <span>Author: {book?.author}</span>
-              <h2 className="card-title text-5xl">{book?.title}</h2>
-              <div className="card-actions mt-2">
-                <div className="badge badge-outline">{book?.genre}</div>
-                <div className="badge badge-outline">
+        <div className="w-[92%] mx-auto py-12">
+          <div className="flex w-full flex-wrap md:flex-nowrap justify-between">
+            <div className="max-w-[500px] max-h-[500px] mb-12 lg:mb-0">
+              <img
+                src={book?.image}
+                alt={book?.title}
+                className="w-full h-full "
+              />
+            </div>
+            <div className="max-w-md md:ml-4 lg:max-w-full lg:ml-16">
+              <p className="text-gray-500">
+                <span className="font-semibold text-emerald-600">Author: </span>
+                {book?.author}
+              </p>
+              <h2 className="text-3xl font-bold my-2">{book?.title}</h2>
+              <div className="flex space-x-8 mb-2">
+                <div className="py-1 px-2 bg-emerald-600 text-gray-200">
+                  {book?.genre}
+                </div>
+                <div className="py-1 px-2 bg-emerald-600 text-gray-200">
                   {book?.publicationDate.toString()}
                 </div>
               </div>
-              <span>{book?.description}</span>
+              <div className="my-4">
+                <span className="text-gray-500">{book?.description}</span>
+              </div>
               {publisher && (
-                <div className="card-actions flex justify-center mt-20 gap-8">
-                  <Link to={`/books/edit/${book?._id}`}>
+                <div className="border-b flex my-8 pb-8 space-x-8">
+                  <Link
+                    to={`/books/edit/${book?._id}`}
+                    className="border p-2 flex rounded-full"
+                  >
                     <AiOutlineEdit size={25} />
                   </Link>
-                  <DeleteBook id={book?._id} />
+                  <div className="border p-2 flex rounded-full">
+                    <DeleteBook id={book?._id} />
+                  </div>
                 </div>
               )}
-              <div className="card-actions flex justify-center mt-20 gap-8">
-                <AddToWishList id={book?._id} />
-                <AddToReadingList id={book?._id} />
+              <div className="flex justify-end space-x-8">
+                <div className="border p-2 flex rounded-full">
+                  <AddToWishList id={book?._id} />
+                </div>
+                <div className="border p-2 flex rounded-full">
+                  <AddToReadingList id={book?._id} />
+                </div>
               </div>
             </div>
           </div>
-          <div className="px-8 bg-white pt-4 pb-8 card rounded-none">
+          <div className="bg-white pt-4 pb-8 card rounded-none">
             <div className="py-4 font-bold text-2xl">Reviews</div>
             <AddReview id={book?._id} />
             <Reviews id={book?._id} />
           </div>
-        </>
+        </div>
       )}
     </>
   );

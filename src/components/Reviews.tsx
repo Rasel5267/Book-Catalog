@@ -27,7 +27,7 @@ const Reviews = ({ id }) => {
     );
   } else {
     return (
-      <div className="flex items-center justify-center">
+      <div className="flex items-center">
         <h4>No Data Found...</h4>
       </div>
     );
