@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <div className="flex w-[92%] mt-12 lg:mt-0 min-h-screen items-center justify-between mx-auto">
       <div className="flex w-full flex-wrap lg:flex-nowrap justify-between">
-        <div className="mb-12 max-w-md">
+        <div className="order-last lg:order-first mb-12 max-w-md">
           <p className="text-emerald-600 font-semibold text-lg mb-6">
             Read Your favorite books
           </p>
@@ -20,7 +20,7 @@ const Hero = () => {
             <Link to="/books">Start Reading</Link>
           </button>
         </div>
-        <div className="flex justify-center lg:max-w-lg md:max-w-[90%]">
+        <div className="flex justify-center mb-12 lg:mb-0 lg:order-last order-first lg:max-w-lg md:max-w-[90%]">
           <img
             src="https://res.cloudinary.com/mahadiul5267/image/upload/v1689676053/Books/pngwing.com_dhoq4m.png"
             className="w-fill m-auto"
