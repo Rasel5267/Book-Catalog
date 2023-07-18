@@ -1,7 +1,8 @@
-import BookCard from '@/components/BookCard';
-import Hero from '@/components/Hero';
-import { useGetBooksQuery } from '@/redux/features/books/bookApi';
-import { IBook } from '@/types/globalTypes';
+import React from 'react';
+import { useGetBooksQuery } from '../redux/features/books/bookApi';
+import { IBook } from '../types/globalTypes';
+import Hero from '../components/Hero';
+import BookCard from '../components/BookCard';
 
 const Home = () => {
   const { data, isLoading } = useGetBooksQuery(undefined);

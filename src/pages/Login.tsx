@@ -1,8 +1,9 @@
-import { useLoginMutation } from '@/redux/features/auth/authApi';
-import { setAuth } from '@/redux/features/auth/authSlice';
-import { useAppDispatch } from '@/redux/hook';
-import { ILogin } from '@/types/authType';
+import { useLoginMutation } from '../redux/features/auth/authApi';
+import { setAuth } from '../redux/features/auth/authSlice';
+import { useAppDispatch } from '../redux/hook';
+import { ILogin } from '../types/authType';
 import { Form, Input, message } from 'antd';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {

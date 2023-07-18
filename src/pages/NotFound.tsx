@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function NotFound() {
-  return <div>NotFound</div>;
+  return <div className="text-center min-h-screen">NotFound</div>;
 }

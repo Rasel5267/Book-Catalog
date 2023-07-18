@@ -1,7 +1,8 @@
-import { useCreateBookMutation } from '@/redux/features/books/bookApi';
-import { IBook } from '@/types/globalTypes';
 import { Form, Input, message } from 'antd';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCreateBookMutation } from '../redux/features/books/bookApi';
+import { IBook } from '../types/globalTypes';
 
 const AddNewBook = () => {
   const navigate = useNavigate();

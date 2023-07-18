@@ -1,5 +1,6 @@
-import { useAddToWishListMutation } from '@/redux/features/user/userApi';
+import { useAddToWishListMutation } from '../redux/features/user/userApi';
 import { message } from 'antd';
+import React from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
 
 const AddToWishList = (id) => {

@@ -1,8 +1,9 @@
 import { message } from 'antd';
 import { IBook } from '../types/globalTypes';
 import { Link } from 'react-router-dom';
-import { useGetFinishedBooksQuery } from '@/redux/features/user/userApi';
-import RemoveFromFinishedBooks from '@/components/RemoveFromFinishedBooks';
+import { useGetFinishedBooksQuery } from '../redux/features/user/userApi';
+import RemoveFromFinishedBooks from '../components/RemoveFromFinishedBooks';
+import React from 'react';
 
 const FinishedBooks = () => {
   const { data, error, isLoading } = useGetFinishedBooksQuery(undefined);

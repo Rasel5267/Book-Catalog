@@ -1,9 +1,10 @@
-import { useGetWishlistQuery } from '@/redux/features/user/userApi';
+import { useGetWishlistQuery } from '../redux/features/user/userApi';
 import { message } from 'antd';
 import { IBook } from '../types/globalTypes';
 import { Link } from 'react-router-dom';
-import AddToReadingList from '@/components/AddToReadingList';
-import RemoveFromWishList from '@/components/RemoveFromWishList';
+import AddToReadingList from '../components/AddToReadingList';
+import RemoveFromWishList from '../components/RemoveFromWishList';
+import React from 'react';
 
 const Wishlist = () => {
   const { data, error, isLoading } = useGetWishlistQuery(undefined);

@@ -1,6 +1,7 @@
-import { useAddReviewMutation } from '@/redux/features/books/bookApi';
-import { IBook } from '@/types/globalTypes';
+import { useAddReviewMutation } from '../redux/features/books/bookApi';
+import { IBook } from '../types/globalTypes';
 import { message } from 'antd';
+import React from 'react';
 import { useState } from 'react';
 import { AiOutlineSend } from 'react-icons/ai';
 

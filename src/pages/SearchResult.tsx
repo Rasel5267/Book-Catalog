@@ -1,7 +1,8 @@
-import BookCard from '@/components/BookCard';
-import { useGetSearchBooksQuery } from '@/redux/features/books/bookApi';
-import { IBook } from '@/types/globalTypes';
+import React from 'react';
 import { useParams } from 'react-router-dom';
+import { useGetSearchBooksQuery } from '../redux/features/books/bookApi';
+import BookCard from '../components/BookCard';
+import { IBook } from '../types/globalTypes';
 
 const SearchResult = () => {
   const { searchTerm } = useParams();

@@ -1,5 +1,6 @@
-import { useRemoveFromFinishedBooksMutation } from '@/redux/features/user/userApi';
+import { useRemoveFromFinishedBooksMutation } from '../redux/features/user/userApi';
 import { message } from 'antd';
+import React from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
 
 const RemoveFromFinishedBooks = (id) => {

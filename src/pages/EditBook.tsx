@@ -1,8 +1,9 @@
+import React from 'react';
 import {
   useSingleBookQuery,
   useUpdateBookMutation,
-} from '@/redux/features/books/bookApi';
-import { IBook } from '@/types/globalTypes';
+} from '../redux/features/books/bookApi';
+import { IBook } from '../types/globalTypes';
 import { Form, Input, message } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 

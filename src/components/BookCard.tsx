@@ -1,7 +1,8 @@
-import { IBook } from '@/types/globalTypes';
+import { IBook } from '../types/globalTypes';
 import { Link } from 'react-router-dom';
 import AddToWishList from './AddToWishList';
 import AddToReadingList from './AddToReadingList';
+import React from 'react';
 
 const BookCard = (book: IBook) => {
   return (

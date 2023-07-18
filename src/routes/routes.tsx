@@ -1,18 +1,19 @@
 import { createBrowserRouter } from 'react-router-dom';
-import App from '@/App';
-import Login from '@/pages/Login';
-import NotFound from '@/pages/NotFound';
-import Home from '@/pages/Home';
-import BookDetails from '@/pages/BookDetails';
-import SignUp from '@/pages/Signup';
-import AddNewBook from '@/pages/AddNewBook';
-import Wishlist from '@/pages/Wishlist';
-import ReadingList from '@/pages/ReadingList';
-import FinishedBooks from '@/pages/FinishedBooks';
-import AllBooks from '@/pages/AllBooks';
+import App from '../App';
+import Login from '../pages/Login';
+import NotFound from '../pages/NotFound';
+import Home from '../pages/Home';
+import BookDetails from '../pages/BookDetails';
+import SignUp from '../pages/Signup';
+import AddNewBook from '../pages/AddNewBook';
+import Wishlist from '../pages/Wishlist';
+import ReadingList from '../pages/ReadingList';
+import FinishedBooks from '../pages/FinishedBooks';
+import AllBooks from '../pages/AllBooks';
 import { PrivateRoute, PublicRoute } from './PrivateRoute';
-import EditBook from '@/pages/EditBook';
-import SearchResult from '@/pages/SearchResult';
+import EditBook from '../pages/EditBook';
+import SearchResult from '../pages/SearchResult';
+import React from 'react';
 
 const routes = createBrowserRouter([
   {

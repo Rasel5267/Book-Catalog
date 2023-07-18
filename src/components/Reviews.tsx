@@ -1,5 +1,6 @@
-import { useGetReviewQuery } from '@/redux/features/books/bookApi';
-import { IReview } from '@/types/globalTypes';
+import { useGetReviewQuery } from '../redux/features/books/bookApi';
+import { IReview } from '../types/globalTypes';
+import React from 'react';
 import { AiOutlineUser } from 'react-icons/ai';
 
 const Reviews = ({ id }) => {

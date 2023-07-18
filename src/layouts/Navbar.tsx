@@ -1,5 +1,6 @@
-import { logout } from '@/redux/features/auth/authSlice';
-import { useAppDispatch } from '@/redux/hook';
+import { logout } from '../redux/features/auth/authSlice';
+import { useAppDispatch } from '../redux/hook';
+import React from 'react';
 import { useState } from 'react';
 import {
   AiOutlineCheckCircle,
@@ -40,7 +41,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem('auth');
     dispatch(logout());
-    window.location.reload();
+    navigate('/');
   };
 
   return (

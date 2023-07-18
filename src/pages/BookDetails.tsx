@@ -1,9 +1,10 @@
-import AddReview from '@/components/AddReview';
-import AddToReadingList from '@/components/AddToReadingList';
-import AddToWishList from '@/components/AddToWishList';
-import DeleteBook from '@/components/DeleteBook';
-import Reviews from '@/components/Reviews';
-import { useSingleBookQuery } from '@/redux/features/books/bookApi';
+import AddReview from '../components/AddReview';
+import AddToReadingList from '../components/AddToReadingList';
+import AddToWishList from '../components/AddToWishList';
+import DeleteBook from '../components/DeleteBook';
+import Reviews from '../components/Reviews';
+import { useSingleBookQuery } from '../redux/features/books/bookApi';
+import React from 'react';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { Link, useParams } from 'react-router-dom';
 

@@ -1,5 +1,6 @@
-import { useRegisterMutation } from '@/redux/features/auth/authApi';
-import { ISignUp } from '@/types/authType';
+import React from 'react';
+import { useRegisterMutation } from '../redux/features/auth/authApi';
+import { ISignUp } from '../types/authType';
 import { Form, Input, message } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 

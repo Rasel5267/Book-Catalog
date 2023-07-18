@@ -1,5 +1,6 @@
-import { useRemoveFromWishListMutation } from '@/redux/features/user/userApi';
+import { useRemoveFromWishListMutation } from '../redux/features/user/userApi';
 import { message } from 'antd';
+import React from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
 
 const RemoveFromWishList = (id) => {

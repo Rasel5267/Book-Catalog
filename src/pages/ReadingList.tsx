@@ -1,9 +1,10 @@
-import { useGetReadingListQuery } from '@/redux/features/user/userApi';
+import { useGetReadingListQuery } from '../redux/features/user/userApi';
 import { message } from 'antd';
 import { IBook } from '../types/globalTypes';
 import { Link } from 'react-router-dom';
-import AddToFinishedBooks from '@/components/AddToFinishedBooks';
-import RemoveFromReadingList from '@/components/RemoveFromReadingList';
+import AddToFinishedBooks from '../components/AddToFinishedBooks';
+import RemoveFromReadingList from '../components/RemoveFromReadingList';
+import React from 'react';
 
 const ReadingList = () => {
   const { data, error, isLoading } = useGetReadingListQuery(undefined);

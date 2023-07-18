@@ -20,8 +20,3 @@ const PublicRoute = ({ children }: IProps) => {
 };
 
 export { PublicRoute, PrivateRoute };
-
-// const storedAuthData = localStorage.getItem('auth');
-// const authData = storedAuthData ? JSON.parse(storedAuthData) : null;
-
-// const user = authData ? authData.user : null;

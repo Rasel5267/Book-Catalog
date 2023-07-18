@@ -1,6 +1,7 @@
-import BookCard from '@/components/BookCard';
-import { useGetBooksQuery } from '@/redux/features/books/bookApi';
-import { IBook } from '@/types/globalTypes';
+import BookCard from '../components/BookCard';
+import { useGetBooksQuery } from '../redux/features/books/bookApi';
+import { IBook } from '../types/globalTypes';
+import React from 'react';
 import { useState, useEffect } from 'react';
 
 const AllBooks = () => {
