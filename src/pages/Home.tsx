@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <div className="pb-8">
-      {/* <Hero /> */}
+      <Hero />
       {isLoading ? (
         <div className="flex justify-center w-full h-[100vh]">
           <span className="loading loading-ring loading-lg"></span>

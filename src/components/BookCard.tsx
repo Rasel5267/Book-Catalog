@@ -23,10 +23,10 @@ const BookCard = (book: IBook) => {
             <p className="">{book.publicationDate}</p>
           </div>
           <div className="flex my-[0.8rem] space-x-10 justify-end">
-            <div className="border rounded-full flex items-center px-2 py-1">
+            <div className="border rounded-full flex items-center px-2 py-1 hover:bg-emerald-600 hover:text-gray-100 transition-colors duration-300">
               <AddToWishList id={book._id} />
             </div>
-            <div className="border rounded-full flex items-center p-2">
+            <div className="border rounded-full flex items-center p-2 hover:bg-emerald-600 hover:text-gray-100 transition-colors duration-300">
               <AddToReadingList id={book._id} />
             </div>
           </div>

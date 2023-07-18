@@ -69,7 +69,7 @@ const Navbar = () => {
             </li>
             {token && (
               <li
-                className="bg-[#a6c1ee] text-white px-5 py-2 rounded-sm hover:bg-[#87acec]"
+                className="bg-emerald-600 text-gray-100 px-5 py-2 rounded-sm hover:bg-gray-800 transition-colors duration-300"
                 onClick={() => setMenuOpen(false)}
               >
                 <NavLink to="books/add-book">Add Books</NavLink>
@@ -79,7 +79,7 @@ const Navbar = () => {
         </div>
         <div className="flex items-center gap-2">
           <div
-            className={`form-control absolute md:static top-12 right-[4%] w-[70vw] md:top-0 md:right-0 md:w-[27vw] md:scale-x-100 md:scale-y-100 z-50 ${
+            className={`form-control absolute md:static top-16 sm:top-12 right-[4%] w-[70vw] md:top-0 md:right-0 md:w-[27vw] md:scale-x-100 md:scale-y-100 z-50 ${
               isSearchOpen ? 'scale-x-100 scale-y-100' : 'scale-x-0 scale-y-0'
             }`}
           >
