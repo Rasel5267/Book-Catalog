@@ -23,14 +23,13 @@ const Home = () => {
 
   return (
     <div className="pb-8">
-      <Hero />
-      <h1 className="text-5xl text-center mt-10 font-bold">Our Latest Books</h1>
+      {/* <Hero /> */}
       {isLoading ? (
         <div className="flex justify-center w-full h-[100vh]">
           <span className="loading loading-ring loading-lg"></span>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-5 mt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-5 mt-8">
           {Books.map((book: IBook) => (
             <BookCard key={book._id} {...book} />
           ))}

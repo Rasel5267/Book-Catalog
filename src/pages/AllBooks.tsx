@@ -66,9 +66,9 @@ const AllBooks = () => {
         </div>
       ) : (
         <div>
-          <div className="w-[92%] mx-auto flex justify-between md:justify-evenly items-center space-x-2 py-8">
+          <div className="w-[92%] mx-auto flex justify-end items-center space-x-2 py-8">
             <select
-              className="select select-primary w-full max-w-xs"
+              className="select select-primary w-sm"
               value={selectedGenre}
               onChange={handleGenreChange}
             >
@@ -80,7 +80,7 @@ const AllBooks = () => {
               ))}
             </select>
             <select
-              className="select select-primary w-full max-w-xs"
+              className="select select-primary w-sm"
               value={selectedPublicationDate}
               onChange={handlePublicationDateChange}
             >
