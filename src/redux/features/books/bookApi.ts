@@ -39,6 +39,9 @@ const productApi = api.injectEndpoints({
       }),
       invalidatesTags: ['review'],
     }),
+    getSearchBooks: builder.query({
+      query: (searchTerm) => `/books?searchTerm=${searchTerm}`,
+    }),
   }),
 });
 
@@ -49,4 +52,5 @@ export const {
   useUpdateBookMutation,
   useDeleteBookMutation,
   useAddReviewMutation,
+  useGetSearchBooksQuery,
 } = productApi;

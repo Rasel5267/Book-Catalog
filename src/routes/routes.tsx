@@ -12,6 +12,7 @@ import FinishedBooks from '@/pages/FinishedBooks';
 import AllBooks from '@/pages/AllBooks';
 import { PrivateRoute, PublicRoute } from './PrivateRoute';
 import EditBook from '@/pages/EditBook';
+import SearchResult from '@/pages/SearchResult';
 
 const routes = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const routes = createBrowserRouter([
       {
         path: '/book-details/:id',
         element: <BookDetails />,
+      },
+      {
+        path: '/search/:searchTerm',
+        element: <SearchResult />,
       },
       {
         path: 'books/add-book',
