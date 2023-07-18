@@ -32,24 +32,27 @@ const Wishlist = () => {
 
   return (
     <div className="w-[92%] mx-auto py-8">
-      <div className="">
-        <table className="">
-          <thead>
+      <div className="h-[650px] overflow-auto">
+        <table className="w-full table-fixed min-w-[1000px] border">
+          <thead className="position-sticky top-0 bg-gray-100 text-gray-600">
             <tr className="">
-              <th className="">Book Title</th>
-              <th className="w-24 ">Publish Date</th>
-              <th className="w-24 ">Genre</th>
-              <th className="w-24 ">Action</th>
+              <th className="py-2 text-center break-all">Book Title</th>
+              <th className="w-32 text-center break-all">Publish Date</th>
+              <th className="w-32 text-center break-all">Genre</th>
+              <th className="w-48 text-center break-all">Action</th>
             </tr>
           </thead>
           <tbody>
             {books.map((book: IBook) => (
-              <tr key={book._id} className="">
-                <td className="py-4 pl-2 flex gap-x-4 items-center">
+              <tr
+                key={book._id}
+                className="hover:bg-gray-100 transition-colors"
+              >
+                <td className="break-all py-2 pl-2 flex gap-x-4 items-center">
                   <img
                     src={book.image}
                     alt={book.title}
-                    className="w-40 aspect-[3/2] rounded-lg object-cover object-top border border-gray-200"
+                    className="w-[60px] h-[60px] object-cover rounded-lg"
                   />
                   <div>
                     <Link
@@ -63,12 +66,18 @@ const Wishlist = () => {
                     </div>
                   </div>
                 </td>
-                <td className="">{book.publicationDate.toString()}</td>
-                <td className="">{book.genre}</td>
-                <td className="">
-                  <div className="flex items-center justify-center">
-                    <AddToReadingList id={book._id} />
-                    <RemoveFromWishList id={book._id} />
+                <td className="text-center">
+                  {book.publicationDate.toString()}
+                </td>
+                <td className="text-center">{book.genre}</td>
+                <td className="text-center">
+                  <div className="flex items-center justify-center space-x-6">
+                    <div className="p-2 rounded-full border flex items-center">
+                      <AddToReadingList id={book._id} />
+                    </div>
+                    <div className="p-2 rounded-full border flex items-center">
+                      <RemoveFromWishList id={book._id} />
+                    </div>
                   </div>
                 </td>
               </tr>
