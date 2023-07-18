@@ -1,33 +1,37 @@
 import { api } from '@/redux/api/apiSlice';
 
-const productApi = api.injectEndpoints({
+const bookApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getBooks: builder.query({
       query: () => '/books',
-      providesTags: ['review'],
+      providesTags: ['books'],
     }),
     singleBook: builder.query({
       query: (id) => `/books/${id}`,
+      providesTags: ['singleBook'],
     }),
     createBook: builder.mutation({
-      query: ({ values }) => ({
+      query: (values) => ({
         url: '/books/create',
         method: 'POST',
         body: values,
       }),
+      invalidatesTags: ['books'],
     }),
     updateBook: builder.mutation({
-      query: ({ id, ...values }) => ({
+      query: ({ id, data }) => ({
         url: `/books/${id}`,
         method: 'PATCH',
-        body: values,
+        body: data,
       }),
+      invalidatesTags: ['singleBook'],
     }),
     deleteBook: builder.mutation({
       query: ({ id }) => ({
         url: `/books/${id}`,
         method: 'DELETE',
       }),
+      invalidatesTags: ['books'],
     }),
     addReview: builder.mutation({
       query: ({ id, values }) => ({
@@ -38,6 +42,10 @@ const productApi = api.injectEndpoints({
         },
       }),
       invalidatesTags: ['review'],
+    }),
+    getReview: builder.query({
+      query: (id) => `/books/review/${id}`,
+      providesTags: ['review'],
     }),
     getSearchBooks: builder.query({
       query: (searchTerm) => `/books?searchTerm=${searchTerm}`,
@@ -53,4 +61,5 @@ export const {
   useDeleteBookMutation,
   useAddReviewMutation,
   useGetSearchBooksQuery,
-} = productApi;
+  useGetReviewQuery,
+} = bookApi;

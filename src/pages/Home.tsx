@@ -5,7 +5,7 @@ import { IBook } from '@/types/globalTypes';
 
 const Home = () => {
   const { data, isLoading } = useGetBooksQuery(undefined);
-  const Books: IBook[] = data?.data?.slice(0, 10);
+
   return (
     <div className="pb-8">
       <Hero />

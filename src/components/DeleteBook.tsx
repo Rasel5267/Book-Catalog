@@ -8,18 +8,23 @@ const DeleteBook = (id) => {
   const [deleteBook, { isLoading }] = useDeleteBookMutation();
 
   const handleDeleteBook = async () => {
-    try {
-      const response = await deleteBook(id);
-      if (response.error) {
-        message.error(response.error.data.errorMessages[0].message);
-      } else {
-        message.success(response.data.message);
-        navigate('/books');
+    const confirmDelete = window.confirm(
+      'Are you sure you want to delete this book?'
+    );
+    if (confirmDelete) {
+      try {
+        const response = await deleteBook(id);
+        if (response.error) {
+          message.error(response.error.data.errorMessages[0].message);
+        } else {
+          message.success(response.data.message);
+          navigate('/books');
+        }
+      } catch (error) {
+        // Handle any unexpected errors here (e.g., network issues)
+        console.error('Unexpected error occurred:', error);
+        message.error('An unexpected error occurred. Please try again later.');
       }
-    } catch (error) {
-      // Handle any unexpected errors here (e.g., network issues)
-      console.error('Unexpected error occurred:', error);
-      message.error('An unexpected error occurred. Please try again later.');
     }
   };
   return (

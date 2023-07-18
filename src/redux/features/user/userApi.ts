@@ -7,7 +7,20 @@ export const userApi = api.injectEndpoints({
         url: `/users/addToWishlist/${id}`,
         method: 'POST',
       }),
+    }),
+    addToReadingList: builder.mutation({
+      query: ({ id }) => ({
+        url: `/users/addToReadingList/${id}`,
+        method: 'POST',
+      }),
       invalidatesTags: ['wishlist'],
+    }),
+    addToFinishedBooks: builder.mutation({
+      query: ({ id }) => ({
+        url: `/users/addToFinishedBook/${id}`,
+        method: 'POST',
+      }),
+      invalidatesTags: ['readingList'],
     }),
     removeFromWishList: builder.mutation({
       query: ({ id }) => ({
@@ -16,17 +29,6 @@ export const userApi = api.injectEndpoints({
       }),
       invalidatesTags: ['wishlist'],
     }),
-    getWishlist: builder.query({
-      query: () => '/users/wishlist',
-      providesTags: ['wishlist'],
-    }),
-    addToReadingList: builder.mutation({
-      query: ({ id }) => ({
-        url: `/users/addToReadingList/${id}`,
-        method: 'POST',
-      }),
-      invalidatesTags: ['readingList'],
-    }),
     removeFromReadingList: builder.mutation({
       query: ({ id }) => ({
         url: `/users/removeFromReadingList/${id}`,
@@ -34,23 +36,20 @@ export const userApi = api.injectEndpoints({
       }),
       invalidatesTags: ['readingList'],
     }),
-    getReadingList: builder.query({
-      query: () => '/users/readingList',
-      providesTags: ['readingList'],
-    }),
-    addToFinishedBooks: builder.mutation({
-      query: ({ id }) => ({
-        url: `/users/addToFinishedBook/${id}`,
-        method: 'POST',
-      }),
-      invalidatesTags: ['finishedBooks'],
-    }),
     removeFromFinishedBooks: builder.mutation({
       query: ({ id }) => ({
         url: `/users/removeFromFinishedBooks/${id}`,
         method: 'POST',
       }),
       invalidatesTags: ['finishedBooks'],
+    }),
+    getWishlist: builder.query({
+      query: () => '/users/wishlist',
+      providesTags: ['wishlist'],
+    }),
+    getReadingList: builder.query({
+      query: () => '/users/readingList',
+      providesTags: ['readingList'],
     }),
     getFinishedBooks: builder.query({
       query: () => '/users/finishedBooks',

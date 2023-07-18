@@ -78,7 +78,7 @@ const FinishedBooks = () => {
                 <td className="whitespace-nowrap font-medium text-center border">
                   {book.genre}
                 </td>
-                <td className="whitespace-nowrap border">
+                <td className="whitespace-nowrap border text-center">
                   <RemoveFromFinishedBooks id={book._id} />
                 </td>
               </tr>

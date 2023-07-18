@@ -22,7 +22,8 @@ const Navbar = () => {
   const storedAuthData = localStorage.getItem('auth');
   const token = storedAuthData ? JSON.parse(storedAuthData).token : null;
 
-  const onFinishHandler = () => {
+  const onFinishHandler = (e) => {
+    e.preventDefault();
     navigate(`/search/${encodeURIComponent(searchTerm)}`);
   };
 

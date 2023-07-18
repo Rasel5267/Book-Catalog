@@ -8,4 +8,10 @@ export interface IBook {
   publicationDate: string;
   publisher: string;
   reviews?: object[];
+  createdAt?: Date;
+}
+
+export interface IReview {
+  review: string;
+  reviewer: object;
 }

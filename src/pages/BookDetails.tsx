@@ -65,10 +65,8 @@ const BookDetails = () => {
           </div>
           <div className="px-8 bg-white pt-4 pb-8 card rounded-none">
             <div className="py-4 font-bold text-2xl">Reviews</div>
-            <AddReview id={book._id} />
-            {book?.reviews.map((review: object, index: number) => (
-              <Reviews key={index} {...review} />
-            ))}
+            <AddReview id={book?._id} />
+            <Reviews id={book?._id} />
           </div>
         </>
       )}
